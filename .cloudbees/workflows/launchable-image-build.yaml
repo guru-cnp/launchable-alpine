@@ -19,7 +19,7 @@ jobs:
           registry: index.docker.io
           username: ${{ vars.GURUREP_DOCKER_USERNAME }}
           password: ${{ secrets.GURUREP_DOCKER_PASSWORD }}
-      - name: Build a container image with Kaniko
+      - name: Build a container image with Kaniko!
         uses: cloudbees-io/kaniko@v1
         with:
           dockerfile: Dockerfile
