@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - "**"
+  workflow_dispatch: {}
 jobs:
   build:
     steps:
@@ -27,4 +28,3 @@ jobs:
           destination: gururepservice/launchable:latest
           build-args: BUILDKIT_CONTEXT_KEEP_GIT_DIR=1,BUILDKIT_INLINE_CACHE=1
           labels: maintainer=Jakub Zarzycki,version=latest
-     
