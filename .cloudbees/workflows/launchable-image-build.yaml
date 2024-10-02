@@ -7,6 +7,17 @@ on:
       - "**"
   workflow_dispatch: {}
 jobs:
+  build_backend_jenkins:
+    steps:
+      - uses: cloudbees-io/cbci-run-job@v2
+        name: trigger_cbci
+        kind: build
+        with:
+          url: https://core.cloudbees.guru/shared-demos
+          username: ${{vars.GURUCI_USERNAME}}
+          token: ${{secrets.GURUCI_TOKEN}}
+          job-name: spring-petclinic/job/spring-petclinic-angular-backend/
+          parameters: '{"version":"${{ cloudbees.version }}"}'
   build:
     steps:
       - uses: docker://alpine/git:latest
